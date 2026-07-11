@@ -19,6 +19,11 @@
 
 通过这些资料，你可以自行复现整套机器人，也可以只选择其中的软件或硬件部分进行学习和改造。
 
+## 学习资料
+
+- 学习文档：[飞书文档](https://my.feishu.cn/wiki/Qzl8wFIfKiksMskyEqMc02sYnXf)
+- 虚拟机镜像：[百度网盘](https://pan.baidu.com/s/1cjOiwqZdjTcRxwIW4gEIOg?pwd=vst7)，提取码：`vst7`
+
 ## 适合人群
 
 - 想低成本入门 ROS2 和机器人开发的学生。
