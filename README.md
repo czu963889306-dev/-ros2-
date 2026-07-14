@@ -40,6 +40,8 @@
 
 淘宝购买链接：[LEAP ROS2 开源机器人](https://item.taobao.com/item.htm?ft=t&id=1064850611171&spm=a21dvs.23580594.0.0.3f062c1b3ZDGGt)
 
+闲鱼购买链接：[LEAP ROS2 开源机器人](https://www.goofish.com/item?spm=a21ybx.personal.feeds.1.37d16ac2npS95O&id=994859528996&categoryId=50023914)
+
 ## 使用声明与交流
 
 **未经允许禁止商用，本项目仅供学习、交流和研究使用。**
