@@ -1,0 +1,26 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rcl_yaml_param_parser"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "Parse a YAML parameter file and populate the C data structure."
+
+INPUT                  = ./include README.md QUALITY_DECLARATION.md
+USE_MDFILE_AS_MAINPAGE = README.md
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             += RCL_YAML_PARAM_PARSER_PUBLIC=
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+# Consider changing "latest" to the version you want to reference (e.g. beta1 or 1.0.0)
+TAGFILES += "../../../../doxygen_tag_files/rcutils.tag=http://docs.ros2.org//api/rcutils/"
+# Uncomment to generate tag files for cross-project linking.
+GENERATE_TAGFILE = "../../../../doxygen_tag_files/rcl_yaml_param_parser.tag"

@@ -1,0 +1,6 @@
+{
+    "hooks": [
+        "share/ament_index_python/environment/ament_index-argcomplete.bash",
+        "share/ament_index_python/environment/ament_index-argcomplete.zsh"
+    ]
+}

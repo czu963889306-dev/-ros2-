@@ -1,0 +1,3 @@
+prepend-non-duplicate-if-exists;PATH;opt/@PROJECT_NAME@/bin
+prepend-non-duplicate-if-exists;@_LIBDIR_VAR_NAME@;opt/@PROJECT_NAME@/lib
+prepend-non-duplicate-if-exists;@_LIBDIR_VAR_NAME@;opt/@PROJECT_NAME@/lib64

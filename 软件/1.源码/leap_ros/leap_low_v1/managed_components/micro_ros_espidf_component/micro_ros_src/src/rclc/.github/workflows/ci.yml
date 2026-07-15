@@ -1,0 +1,51 @@
+name: CI RCLC Humble
+
+on:
+  push:
+    branches: [ humble ]
+  pull_request:
+    branches: [ humble ]
+  schedule:
+    # Run once per day to detect broken dependencies.
+    - cron: '33 6 * * *'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-22.04 ]
+        ros_distribution: [ humble ]
+        include:
+          - docker_image: ubuntu:jammy
+            ros_distribution: humble
+    container:
+      image: ${{ matrix.docker_image }}
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ros-tooling/setup-ros@0.7.15
+      with:
+        use-ros2-testing: true
+        required-ros-distributions: ${{ matrix.ros_distribution }}
+    - name : Download and install rclc-dependencies
+      run: |
+        apt-get install ros-${{ matrix.ros_distribution }}-osrf-testing-tools-cpp
+        apt-get install ros-${{ matrix.ros_distribution }}-test-msgs
+        apt-get install ros-${{ matrix.ros_distribution }}-rclcpp-action
+        apt-get install ros-${{ matrix.ros_distribution }}-mimick-vendor
+        apt-get -y install ros-${{ matrix.ros_distribution }}-performance-test-fixture
+    - uses : ros-tooling/action-ros-ci@0.4.5
+      with:
+        package-name: "rclc rclc_examples rclc_lifecycle rclc_parameter"
+        target-ros2-distro: ${{ matrix.ros_distribution }}
+        colcon-defaults: |
+          {
+            "build": {
+              "mixin": [ "coverage-gcc" ]
+            }
+          }
+        colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+    - uses: codecov/codecov-action@v1
+      with:
+        file: ros_ws/lcov/total_coverage.info

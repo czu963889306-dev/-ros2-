@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>ament_package</name>
+  <version>0.14.2</version>
+  <description>The parser for the manifest files in the ament buildsystem.</description>
+
+  <maintainer email="audrow@openrobotics.org">Audrow Nash</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+  <author email="mabel@openrobotics.org">Mabel Zhang</author>
+
+  <depend>python3-importlib-metadata</depend>
+  <depend>python3-importlib-resources</depend>
+  <depend>python3-setuptools</depend>
+
+  <test_depend>python3-flake8</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

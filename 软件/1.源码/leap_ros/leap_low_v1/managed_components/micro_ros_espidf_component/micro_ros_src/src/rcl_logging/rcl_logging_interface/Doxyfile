@@ -1,0 +1,26 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rcl_logging_interface"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "Interface that rcl_logging backends need to implement."
+
+INPUT                  = ./include
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             += RCUTILS_WARN_UNUSED=
+PREDEFINED             += RCL_LOGGING_INTERFACE_PUBLIC=
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+TAGFILES += "../../../../doxygen_tag_files/rcutils.tag=http://docs.ros2.org/latest/api/rcutils/"
+# Uncomment to generate tag files for cross-project linking.
+#GENERATE_TAGFILE = "../../../doxygen_tag_files/rcl_logging_interface.tag"

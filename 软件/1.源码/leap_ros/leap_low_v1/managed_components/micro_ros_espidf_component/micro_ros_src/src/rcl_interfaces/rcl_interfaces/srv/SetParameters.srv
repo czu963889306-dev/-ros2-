@@ -1,0 +1,6 @@
+# A list of parameters to set.
+Parameter[] parameters
+
+---
+# Indicates whether setting each parameter succeeded or not and why.
+SetParametersResult[] results

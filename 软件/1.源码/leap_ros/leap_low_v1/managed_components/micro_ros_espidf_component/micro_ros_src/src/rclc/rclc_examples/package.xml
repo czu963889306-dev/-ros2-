@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>rclc_examples</name>
+  <version>4.0.2</version>
+  <description>Example of using rclc_executor</description>
+  <maintainer email="jan.staschulat@de.bosch.com">Jan Staschulat</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="jan.staschulat@de.bosch.com">Jan Staschulat</author>
+  <author email="arne.nordmann@de.bosch.com">Arne Nordmann</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  
+  <build_depend>rcl</build_depend>
+  <build_depend>rclc</build_depend>
+  <build_depend>rclc_lifecycle</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>lifecycle_msgs</build_depend>
+  <build_depend>example_interfaces</build_depend>
+
+  <exec_depend>rcl</exec_depend>
+  <exec_depend>rclc</exec_depend>
+  <exec_depend>rclc_lifecycle</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+  <exec_depend>example_interfaces</exec_depend>
+
+  <depend>rclc_parameter</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

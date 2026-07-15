@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rclc_parameter</name>
+  <version>4.0.2</version>
+  <description>Parameter server implementation for micro-ROS nodes</description>
+  <maintainer email="antoniocuadros@eprosima.com">Antonio Cuadros</maintainer>
+
+  <license>Apache License 2.0</license>
+  
+  <author email="antoniocuadros@eprosima.com">Antonio Cuadros</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+
+  <depend>rcl</depend>
+  <depend>rclc</depend>
+  <depend>rcutils</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>rosidl_runtime_c</depend>
+
+  <test_depend>rclcpp</test_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>example_interfaces</test_depend>
+  <test_depend>osrf_testing_tools_cpp</test_depend>
+  <test_depend>std_msgs</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,4 @@
+- ros1_package_name: 'uuid_msgs'
+  ros1_message_name: 'UniqueID'
+  ros2_package_name: 'unique_identifier_msgs'
+  ros2_message_name: 'UUID'

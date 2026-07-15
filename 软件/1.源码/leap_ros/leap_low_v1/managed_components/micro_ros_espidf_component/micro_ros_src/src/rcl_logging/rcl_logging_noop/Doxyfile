@@ -1,0 +1,28 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rcl_logging_noop"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "A library implementation of the rcl_logging interface that does nothing."
+
+# Use these lines to include the generated logging_macro.h (update install path if needed)
+#INPUT                  = README.md ../../../install_isolated/rcutils/include
+#STRIP_FROM_PATH        = /Users/william/ros2_ws/install_isolated/rcutils/include
+# Otherwise just generate for the local (non-generated header files)
+INPUT                  = README.md ./include
+USE_MDFILE_AS_MAINPAGE = README.md
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+# Uncomment to generate tag files for cross-project linking.
+#GENERATE_TAGFILE = "../../../doxygen_tag_files/rcutils.tag"

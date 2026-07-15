@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>rclc</name>
+  <version>4.0.2</version>
+  <description>The ROS client library in C.</description>
+  <maintainer email="jan.staschulat@de.bosch.com">Jan Staschulat</maintainer>
+  <maintainer email="eugeniocollado@eprosima.com">Eugenio Collado</maintainer>
+  <maintainer email="carlosespinoza@eprosima.com">Carlos Espinoza</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="jan.staschulat@de.bosch.com">Jan Staschulat</author>
+  <author email="william@osrfoundation.org">William Woodall</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+
+  <build_depend>rcl</build_depend>
+  <build_depend>rcl_action</build_depend>
+  <build_depend>rcutils</build_depend>
+  <build_depend>rosidl_generator_c</build_depend>
+  <build_depend>rosidl_typesupport_c</build_depend>
+
+  <exec_depend>rcl</exec_depend>
+  <exec_depend>rcutils</exec_depend>
+  <exec_depend>rosidl_generator_c</exec_depend>
+
+  <build_export_depend>rcl_action</build_export_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>launch_testing</test_depend>
+  <test_depend>osrf_testing_tools_cpp</test_depend>
+  <test_depend>std_msgs</test_depend>
+  <test_depend>test_msgs</test_depend>
+  <test_depend>example_interfaces</test_depend>
+  <test_depend>rclcpp</test_depend>
+  <test_depend>rclcpp_action</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

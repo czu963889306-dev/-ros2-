@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>rmw</name>
+  <version>6.1.2</version>
+  <description>Contains the ROS middleware API.</description>
+  <maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+  <maintainer email="william@openrobotics.org">William Woodall</maintainer>
+  <license>Apache License 2.0</license>
+  <author email="dthomas@openrobotics.org">Dirk Thomas</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>ament_cmake_version</buildtool_depend>
+
+  <build_depend>rcutils</build_depend>
+  <!-- Only needed because CMake versions less than 3.13 don't support CMP0079 -->
+  <build_depend>rosidl_runtime_c</build_depend>
+
+  <build_export_depend>rcutils</build_export_depend>
+  <!-- This is required for the definition of the rosidl typesupport types -->
+  <build_export_depend>rosidl_runtime_c</build_export_depend>
+
+  <test_depend>ament_cmake_gmock</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>osrf_testing_tools_cpp</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

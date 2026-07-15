@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rosidl_default_runtime</name>
+  <version>1.2.1</version>
+  <description>A configuration package defining the runtime for the ROS interfaces.</description>
+  <maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
+  <license>Apache License 2.0</license>
+  <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Bloom does not support group_depend, so this unrolls rosidl_runtime_packages -->
+  <build_export_depend>rosidl_runtime_c</build_export_depend>
+  <build_export_depend>rosidl_runtime_cpp</build_export_depend>
+  <build_export_depend>rosidl_generator_py</build_export_depend>
+
+  <!-- Bloom does not support group_depend, so this unrolls rosidl_typesupport_c_packages -->
+  <build_export_depend>rosidl_typesupport_c</build_export_depend>
+  <build_export_depend>rosidl_typesupport_fastrtps_c</build_export_depend>
+  <build_export_depend>rosidl_typesupport_introspection_c</build_export_depend>
+
+  <!-- Bloom does not support group_depend, so this unrolls rosidl_typesupport_cpp_packages -->
+  <build_export_depend>rosidl_typesupport_cpp</build_export_depend>
+  <build_export_depend>rosidl_typesupport_fastrtps_cpp</build_export_depend>
+  <build_export_depend>rosidl_typesupport_introspection_cpp</build_export_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <group_depend>rosidl_runtime_packages</group_depend>
+  <group_depend>rosidl_typesupport_c_packages</group_depend>
+  <group_depend>rosidl_typesupport_cpp_packages</group_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

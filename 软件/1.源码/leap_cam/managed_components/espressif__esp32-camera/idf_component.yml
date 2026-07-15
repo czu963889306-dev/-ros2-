@@ -1,0 +1,15 @@
+dependencies:
+  esp_jpeg:
+    public: true
+    version: ^1.3.1
+  idf: '>=5.1'
+description: ESP32 compatible driver for OV2640, OV3660, OV5640, OV7670 and OV7725
+  image sensors.
+documentation: https://github.com/espressif/esp32-camera/tree/main/README.md
+issues: https://github.com/espressif/esp32-camera/issues
+repository: git://github.com/espressif/esp32-camera.git
+repository_info:
+  commit_sha: 2ac69a6f1749694804f5196e63fa1f79800b74bf
+  path: .
+url: https://github.com/espressif/esp32-camera
+version: 2.1.6

@@ -1,0 +1,13 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rmw_implementation"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "Proxy implementation of the ROS 2 Middleware Interface."
+
+INPUT                  = README.md QUALITY_DECLARATION.md
+USE_MDFILE_AS_MAINPAGE = README.md
+OUTPUT_DIRECTORY       = doc_output
+
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO

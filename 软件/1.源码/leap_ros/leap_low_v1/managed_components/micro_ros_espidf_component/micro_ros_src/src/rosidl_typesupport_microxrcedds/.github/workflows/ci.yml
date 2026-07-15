@@ -1,0 +1,59 @@
+name: CI rosidl_typesupport_microxrcedds
+
+on:
+    pull_request:
+      branches:
+        - 'humble'
+    schedule:
+      - cron: '33 6 * * *'
+
+jobs:
+
+    rosidl_typesupport_microxrcedds_ci:
+      runs-on: ubuntu-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          os: [ ubuntu-20.04 ]
+          ros_distribution: [ humble ]
+          include:
+            - docker_image: ubuntu:jammy
+              ros_distribution: humble
+      container:
+        image: ubuntu:jammy
+
+      steps:
+      - uses: actions/checkout@v2
+        with:
+          path: src/rosidl_typesupport_microxrcedds
+      - uses: ros-tooling/setup-ros@0.7.13
+        with:
+          use-ros2-testing: false
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+
+      - name: Download dependencies
+        run: |
+          git clone -b ros2 https://github.com/eProsima/Micro-CDR src/Micro-CDR
+          git clone -b ros2 https://github.com/eProsima/Micro-XRCE-DDS-Client src/Micro-XRCE-DDS-Client
+          git clone -b humble https://github.com/micro-ROS/rmw-microxrcedds src/rmw-microxrcedds
+          # Install coverage tools
+          apt update && apt install -y python3-pip curl
+          pip3 install gcovr
+          # Install RMW Fast DDS
+          apt update && apt install -y ros-${{ matrix.ros_distribution }}-rmw-fastrtps-cpp
+
+      - name: Build
+        run: . /opt/ros/${{ matrix.ros_distribution }}/setup.sh && colcon build --symlink-install --cmake-args -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_FLAGS="-ftest-coverage --coverage -fno-inline -fno-inline-small-functions -fno-default-inline" -DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON -DCMAKE_C_FLAGS="-ftest-coverage --coverage -fno-inline -fno-inline-small-functions -fno-default-inline" -DCMAKE_C_OUTPUT_EXTENSION_REPLACE=ON
+
+      - name: Test
+        run: |
+          . /opt/ros/${{ matrix.ros_distribution }}/setup.sh && . install/local_setup.sh
+          colcon test --packages-select=rosidl_typesupport_microxrcedds_cpp_tests --event-handlers console_direct+ --return-code-on-test-failure --ctest-args -E "(cpplint)|(lint_cmake)|(uncrustify)"
+          colcon test --packages-select=rosidl_typesupport_microxrcedds_c_tests --event-handlers console_direct+ --return-code-on-test-failure --ctest-args -E "(cpplint)|(lint_cmake)|(uncrustify)|(xmllint)"
+
+      - name: Coverage
+        run: |
+          cd src/rosidl_typesupport_microxrcedds/rosidl_typesupport_microxrcedds_c
+          gcovr -x -r . -o coverage.xml ../../../build --exclude-unreachable-branches
+          curl -s https://codecov.io/bash -o codecov.bash && chmod +x codecov.bash
+          ./codecov.bash -t ${{ secrets.CODECOV_TOKEN }}

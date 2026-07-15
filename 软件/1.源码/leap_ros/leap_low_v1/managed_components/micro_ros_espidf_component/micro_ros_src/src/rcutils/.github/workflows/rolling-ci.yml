@@ -1,0 +1,16 @@
+name: rcutils CI Rolling
+
+on:
+  push:
+    branches: [ rolling ]
+  pull_request:
+    branches: [ rolling ]
+
+jobs:
+  rolling-ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      branch: ${{ github.ref }}
+      os: ubuntu-24.04
+      docker-image: ubuntu:noble
+      ros-distribution: rolling

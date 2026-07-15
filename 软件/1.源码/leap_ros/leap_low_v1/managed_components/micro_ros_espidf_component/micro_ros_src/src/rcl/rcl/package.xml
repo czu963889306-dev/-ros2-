@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rcl</name>
+  <version>5.3.10</version>
+  <description>The ROS client library common implementation.
+    This package contains an API which builds on the ROS middleware API and is optionally built upon by the other ROS client libraries.
+  </description>
+  <maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+  <maintainer email="jacob@openrobotics.org">Jacob Perron</maintainer>
+  <maintainer email="william@openrobotics.org">William Woodall</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>ament_cmake_gen_version_h</buildtool_depend>
+
+  <build_export_depend>rmw</build_export_depend>
+
+  <depend>rcl_interfaces</depend>
+  <depend>rcl_logging_interface</depend>
+  <depend>rcl_logging_spdlog</depend> <!-- the default logging impl -->
+  <depend>rcl_yaml_param_parser</depend>
+  <depend>rcutils</depend>
+  <depend>rmw_implementation</depend>
+  <depend>rosidl_runtime_c</depend>
+  <depend>tracetools</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>launch</test_depend>
+  <test_depend>launch_testing</test_depend>
+  <test_depend>launch_testing_ament_cmake</test_depend>
+  <test_depend>mimick_vendor</test_depend>
+  <test_depend>osrf_testing_tools_cpp</test_depend>
+  <test_depend>rcpputils</test_depend>
+  <test_depend>rmw</test_depend>
+  <test_depend>rmw_implementation_cmake</test_depend>
+  <test_depend>test_msgs</test_depend>
+
+  <group_depend>rcl_logging_packages</group_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

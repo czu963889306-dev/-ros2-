@@ -1,0 +1,29 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rmw"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "C API providing a middleware abstraction layer which is used to implement the rest of ROS."
+
+INPUT                  = ./include
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             += RMW_PUBLIC=
+PREDEFINED             += RMW_PUBLIC_TYPE=
+PREDEFINED             += RMW_WARN_UNUSED=
+PREDEFINED             += RCUTILS_DEPRECATED_WITH_MSG(x)=
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+# Consider changing "latest" to the version you want to reference (e.g. beta1 or 1.0.0)
+TAGFILES += "../../../../doxygen_tag_files/rcutils.tag=http://docs.ros2.org/latest/api/rcutils/"
+# Uncomment to generate tag files for cross-project linking.
+#GENERATE_TAGFILE = "../../../../doxygen_tag_files/rmw.tag"

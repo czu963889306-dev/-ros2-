@@ -1,0 +1,14 @@
+
+-deprecate(type, size_t, "Use size64_t instead")
+-deprecate(type, bool, "Use bool8_t instead")
+
+-deprecate(function, memcpy, "Use memmove instead")
+
+-deprecate(function, strcpy, "Use strncpy instead")
+-deprecate(function, strlen, "Use srnlen instead")
+-deprecate(function, strcat, "Use strncat instead")
+-deprecate(function, strcmp, "Use strncmp instead")
+-deprecate(function, strdup, "Use Apex memory management")
+
+-deprecate(function, sprintf, "Use snprintf instead")
+-deprecate(function, vsprintf, "Use vsnprintf instead")

@@ -1,0 +1,4 @@
+initial_params_node:
+    ros__parameters:
+        sa1: ["Four", "score"]
+        sa2: ["and", "7"]

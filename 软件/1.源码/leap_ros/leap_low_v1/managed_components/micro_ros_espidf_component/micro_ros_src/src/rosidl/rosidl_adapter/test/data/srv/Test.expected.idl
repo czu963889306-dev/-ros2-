@@ -1,0 +1,55 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from test_msgs/srv/Test.srv
+// generated code does not contain a copyright notice
+
+
+module test_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "1" "\n"
+      "2")
+    struct Test_Request {
+      @verbatim (language="comment", text=
+        "3")
+      boolean bool_value;
+
+      @verbatim (language="comment", text=
+        "4")
+      octet byte_value;
+
+      @verbatim (language="comment", text=
+        "5" "\n"
+        "6")
+      uint8 char_value;
+
+      float float32_value;
+
+      double float64_value;
+
+      int8 int8_value;
+
+      uint8 uint8_value;
+
+      int16 int16_value;
+
+      uint16 uint16_value;
+
+      int32 int32_value;
+
+      uint32 uint32_value;
+
+      int64 int64_value;
+
+      uint64 uint64_value;
+
+      string string_value;
+    };
+    @verbatim (language="comment", text=
+      "7")
+    struct Test_Response {
+      @verbatim (language="comment", text=
+        "8")
+      boolean ok;
+    };
+  };
+};

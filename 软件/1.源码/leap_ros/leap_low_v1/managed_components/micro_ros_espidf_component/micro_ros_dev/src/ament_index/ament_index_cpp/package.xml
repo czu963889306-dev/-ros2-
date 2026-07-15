@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>ament_index_cpp</name>
+  <version>1.4.1</version>
+  <description>
+    C++ API to access the ament resource index.
+  </description>
+  <maintainer email="audrow@openrobotics.org">Audrow Nash</maintainer>
+  <license>Apache License 2.0</license>
+
+  <author>Dirk Thomas</author>
+  <author>Claire Wang</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_gen_version_h</buildtool_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

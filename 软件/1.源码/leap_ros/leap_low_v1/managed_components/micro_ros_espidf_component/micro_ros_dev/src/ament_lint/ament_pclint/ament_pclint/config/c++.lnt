@@ -1,0 +1,15 @@
+///////////////////////////////////////////////////////////////////////
+-v
+-t4
+-u
+-b
+-width(0,4)
+
+++"d__thread="
+--u_GLIBCXX_USE_INT128
+///////////////////////////////////////////////////////////////////////////////
+../au-misra-cpp.lnt
+../deprecate.lnt
+-std=c++14
+-e1731  // public virtual function symbol
+-e1790  // public base 'rclcpp::Node' of 'my_cool_pkg::MyCoolPkg' has no non-destructor virtual functions

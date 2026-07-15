@@ -1,0 +1,7 @@
+menu "Leap low settings"
+
+    config MICRO_ROS_LOCAL_PORT
+        string "micro-ROS local UDP port"
+        default "8888"
+
+endmenu

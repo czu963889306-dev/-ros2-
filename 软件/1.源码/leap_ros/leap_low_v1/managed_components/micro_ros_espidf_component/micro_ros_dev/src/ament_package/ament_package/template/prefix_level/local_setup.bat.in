@@ -1,0 +1,92 @@
+:: generated from ament_package/template/prefix_level/local_setup.bat.in
+@echo off
+
+:: get and run all commands in topological order
+call:_ament_run_ordered_commands "%~dp0"
+
+goto:eof
+
+
+:: Run the commands in topological order
+:: first argument: the base path to look for packages
+:_ament_run_ordered_commands
+  setlocal enabledelayedexpansion
+  :: check environment variable for custom Python executable
+  if "%AMENT_PYTHON_EXECUTABLE%" NEQ "" (
+    if not exist "%AMENT_PYTHON_EXECUTABLE%" (
+      echo error: AMENT_PYTHON_EXECUTABLE '%AMENT_PYTHON_EXECUTABLE%' doesn't exist
+      exit /b 1
+    )
+    set "_ament_python_executable=%AMENT_PYTHON_EXECUTABLE%"
+  ) else (
+    :: use the Python executable known at configure time
+    set "_ament_python_executable=@ament_package_PYTHON_EXECUTABLE@"
+    :: if it doesn't exist try a fall back
+    if not exist "!_ament_python_executable!" (
+      python --version > NUL 2> NUL
+      if errorlevel 1 (
+        echo error: unable to find python executable
+        exit /b 1
+      )
+      set "_ament_python_executable=python"
+    )
+  )
+
+  endlocal & (
+    set "_ament_python_executable=%_ament_python_executable%"
+  )
+
+  :: escape potential closing parenthesis which would break the for loop
+  set "ament_python_executable=%ament_python_executable:)=^)%"
+  for /f "delims=" %%c in ('""%_ament_python_executable%" "%~1_local_setup_util.py" bat"') do (
+    if "%AMENT_TRACE_SETUP_FILES%" NEQ "" (
+      echo %%c
+    )
+    :: only invoke non-comment lines
+    echo %%c | findstr /r "^::" >nul 2>&1
+    if errorlevel 1 (
+      call %%c
+    )
+  )
+  set _ament_python_executable=
+goto:eof
+
+
+:: call the specified batch file and output the name when tracing is requested
+:: first argument: the batch file
+:_ament_prefix_bat_call_script
+  if exist "%~1" (
+    if "%AMENT_TRACE_SETUP_FILES%" NEQ "" echo call "%~1"
+    call "%~1%"
+  ) else (
+    echo not found: "%~1" 1>&2
+  )
+goto:eof
+
+
+:: strip a leading semicolon from an environment variable if applicable
+:: first argument: the environment variable name
+:_ament_prefix_bat_strip_leading_semicolon
+  setlocal enabledelayedexpansion
+  set "name=%~1"
+  set "value=!%name%!"
+  if "%value:~0,1%"==";" set "value=%value:~1%"
+  :: set result variable in parent scope
+  endlocal & (
+    set "%~1=%value%"
+  )
+goto:eof
+
+
+:: strip a trailing semicolon from an environment variable if applicable
+:: first argument: the environment variable name
+:_ament_prefix_bat_strip_trailing_semicolon
+  setlocal enabledelayedexpansion
+  set "name=%~1"
+  set "value=!%name%!"
+  if "%value:~-1%"==";" set "value=%value:~0,-1%"
+  :: set result variable in parent scope
+  endlocal & (
+    set "%~1=%value%"
+  )
+goto:eof

@@ -1,0 +1,56 @@
+name: Reusable rcutils CI
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: "The rcutils branch to use for the workflow"
+        required: true
+        type: string
+      os:
+        description: "The OS to use for the workflow"
+        required: true
+        type: string
+      docker-image:
+        description: "The docker image to use for the workflow"
+        required: true
+        type: string
+      ros-distribution:
+        description: "The ROS distribution to use for the workflow"
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ${{ inputs.os }}
+    strategy:
+      fail-fast: false
+    container:
+      image: ${{ inputs.docker-image }}
+    steps:
+
+    - run: |
+        apt-get update && apt-get install -y git
+      shell: bash
+
+    - name: Sync repository
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ inputs.branch }}
+        submodules: recursive
+
+    - name: Setup ROS 2 
+      uses: ros-tooling/setup-ros@0.7.15
+      with:
+        required-ros-distributions: ${{ inputs.ros-distribution }}
+
+    - name : Download and install rcutils-dependencies
+      run: |
+        apt-get install ros-${{ inputs.ros-distribution }}-mimick-vendor
+        apt-get -y install ros-${{ inputs.ros-distribution }}-performance-test-fixture
+
+    - uses : ros-tooling/action-ros-ci@0.4.5
+      with:
+        package-name: "rcutils"
+        target-ros2-distro: ${{ inputs.ros-distribution }}
+        skip-tests: true

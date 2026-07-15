@@ -1,0 +1,4 @@
+test_node:
+    ros__parameters:
+        isstring: [string, .nananan, .nAN, .Nan, .infinf, .INf, .infinity]
+        nan_inf: [1.1, 2.2, .nan, .NAN, .inf, +.Inf, -.INF]

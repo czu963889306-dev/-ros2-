@@ -1,0 +1,58 @@
+:: generated from ament_package/template/isolated_prefix_level/local_setup.bat.in
+@echo off
+
+:: get all packages in topological order
+call:ament_get_ordered_packages _ordered_packages "%~dp0"
+
+:: source local_setup.bat file for each package
+if "%_ordered_packages%" NEQ "" (
+  for %%p in ("%_ordered_packages:;=";"%") do (
+    :: bypass prefix-level local_setup file for performance reasons
+    call:call_file "%~dp0%%~p\share\%%~p\local_setup.bat"
+  )
+  set "_ordered_packages="
+)
+
+goto:eof
+
+
+:: Get the package names in topological order
+:: using semicolons as separators and avoiding leading separators.
+:: first argument: the name of the result variable
+:: second argument: the base path to look for packages
+:ament_get_ordered_packages
+  setlocal enabledelayedexpansion
+
+  :: use the Python executable known at configure time
+  set "_ament_python_executable=@PYTHON_EXECUTABLE@"
+  :: allow overriding it with a custom location
+  if "%AMENT_PYTHON_EXECUTABLE%" NEQ "" (
+    set "_ament_python_executable=%AMENT_PYTHON_EXECUTABLE%"
+  )
+  if NOT exist "%_ament_python_executable%" (
+    for %%I in (python.exe) do (
+      if "%%~$PATH:I" NEQ "" set "_ament_python_executable=%%~$PATH:I"
+    )
+  )
+  if NOT exist "%_ament_python_executable%" (
+    echo "Could not find Python executable: either add the folder of the Python executable (e.g. installed with Chocolatey) to the PATH variable or explicitly set the environment variable AMENT_PYTHON_EXECUTABLE to the full path of the Python executable"
+    goto:eof
+  )
+
+  set "ordered_packages="
+  for /f %%p in ('""%_ament_python_executable%" "%~dp0_order_isolated_packages.py" "%~2\""') do (
+    if "!ordered_packages!" NEQ "" set "ordered_packages=!ordered_packages!;"
+    set "ordered_packages=!ordered_packages!%%p"
+  )
+  endlocal & (
+    :: set result variable in parent scope
+    set "%~1=%ordered_packages%"
+  )
+goto:eof
+
+:: Call the specified batch file and output the name when tracing is requested.
+:: first argument: the batch file
+:call_file
+  if "%AMENT_TRACE_SETUP_FILES%" NEQ "" echo call "%~1"
+  if exist "%~1" call "%~1%"
+goto:eof

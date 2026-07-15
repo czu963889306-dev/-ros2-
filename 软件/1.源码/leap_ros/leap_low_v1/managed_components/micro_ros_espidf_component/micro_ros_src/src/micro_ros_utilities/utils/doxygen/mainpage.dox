@@ -1,0 +1,7 @@
+/*!
+ * @mainpage micro-ROS Utilities.
+ * <div id="mainpage" style="width:95%;text-align:justify;text-justify:inter-word">
+ * This layer provides a set of utilities for using micro-ROS in embedded systems.
+</div>
+*
+ */

@@ -1,0 +1,22 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "board_control.c"
+        "camera_init.c"
+        "wifi_manager.c"
+        "web_config.c"
+        "web_mjpeg.c"
+        "udp_discovery.c"
+        "i2c_slave_comm.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        esp32-camera
+        esp_wifi
+        esp_event
+        esp_netif
+        esp_http_server
+        nvs_flash
+        esp_psram
+        esp_driver_i2c
+        lwip
+)

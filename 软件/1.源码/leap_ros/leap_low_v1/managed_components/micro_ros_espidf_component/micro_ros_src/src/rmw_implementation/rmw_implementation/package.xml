@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rmw_implementation</name>
+  <version>2.8.5</version>
+  <description>Proxy implementation of the ROS 2 Middleware Interface.</description>
+
+  <maintainer email="audrow@openrobotics.org">Audrow Nash</maintainer>
+  <maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</author>
+  <author>Dirk Thomas</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rmw_implementation_cmake</buildtool_depend>
+
+  <depend>ament_index_cpp</depend>
+  <depend>rcpputils</depend>
+  <depend>rcutils</depend>
+  <build_depend>rmw</build_depend>
+  <!--
+  Bloom does not support group_depend so entries below duplicate the group rmw_implementation_packages.
+  This ensures that binary packages have support for all of these rmw impl. enabled.
+  -->
+  <build_depend>rmw_connextdds</build_depend>
+  <build_depend>rmw_cyclonedds_cpp</build_depend>
+  <build_depend>rmw_fastrtps_cpp</build_depend>
+  <build_depend>rmw_fastrtps_dynamic_cpp</build_depend>
+  <!-- end of group dependencies added for bloom -->
+
+  <depend>rmw_implementation_cmake</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>performance_test_fixture</test_depend>
+
+  <group_depend>rmw_implementation_packages</group_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

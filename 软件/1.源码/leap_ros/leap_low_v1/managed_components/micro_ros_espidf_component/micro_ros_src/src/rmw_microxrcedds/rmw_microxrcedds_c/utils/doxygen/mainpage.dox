@@ -1,0 +1,10 @@
+/*!
+ * @mainpage Micro XRCE-DDS Client.
+ * <div id="mainpage" style="width:95%;text-align:justify;text-justify:inter-word">
+ * This layer is the ROS 2 Middleware Abstraction Interface written in C.
+ * This package provides a middleware implementation for XRCE-DDS (rmw layer).
+ * The implementation wraps the latest code from eProsima's Micro XRCE-DDS client to communicate with the DDS world.
+ * This library defines the interface used by upper layers in the ROS 2 stack, and that is implemented using XRCE-DDS middleware in the lower layers.
+</div>
+*
+ */

@@ -1,0 +1,10 @@
+# generated from rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in
+
+# Create a convenience aggregate target @PROJECT_NAME@::@PROJECT_NAME@
+# that links all generated interface targets, so downstream packages can use
+# a single modern CMake target name instead of ${@PROJECT_NAME@_TARGETS}.
+if(@PROJECT_NAME@_TARGETS AND NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
+  add_library(@PROJECT_NAME@::@PROJECT_NAME@ INTERFACE IMPORTED)
+  set_target_properties(@PROJECT_NAME@::@PROJECT_NAME@ PROPERTIES
+    INTERFACE_LINK_LIBRARIES "${@PROJECT_NAME@_TARGETS}")
+endif()

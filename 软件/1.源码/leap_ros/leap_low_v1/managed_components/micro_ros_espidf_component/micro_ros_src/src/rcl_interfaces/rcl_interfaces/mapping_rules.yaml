@@ -1,0 +1,13 @@
+-
+  ros1_package_name: 'rosgraph_msgs'
+  ros1_message_name: 'Log'
+  ros2_package_name: 'rcl_interfaces'
+  ros2_message_name: 'Log'
+  fields_1_to_2:
+    header.stamp: 'stamp'
+    level: 'level'
+    name: 'name'
+    msg: 'msg'
+    file: 'file'
+    function: 'function'
+    line: 'line'

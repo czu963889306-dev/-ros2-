@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>micro_ros_espidf</name>
+  <version>3.0.2</version>
+  <description>micro-ROS tools for Espressif ESP-IDF</description>
+  <maintainer email="eugeniocollado@eprosima.com">Eugenio Collado</maintainer>
+  <maintainer email="carlosespinoza@eprosima.com">Carlos Espinoza</maintainer>
+  <license>Apache License 2.0</license>
+</package>

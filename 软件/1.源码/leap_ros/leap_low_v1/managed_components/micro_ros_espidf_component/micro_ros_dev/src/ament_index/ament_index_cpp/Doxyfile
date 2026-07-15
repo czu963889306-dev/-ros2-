@@ -1,0 +1,23 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "ament_index_cpp"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "C++ API to access the ament resource index."
+
+INPUT                  = ./include
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             += AMENT_INDEX_CPP_PUBLIC=
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+# Uncomment to generate tag files for cross-project linking.
+GENERATE_TAGFILE = "../../../../doxygen_tag_files/ament_index_cpp.tag"

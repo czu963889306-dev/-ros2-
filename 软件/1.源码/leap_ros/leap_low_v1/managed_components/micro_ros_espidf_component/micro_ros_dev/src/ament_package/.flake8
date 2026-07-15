@@ -1,0 +1,6 @@
+[flake8]
+extend-ignore = D100,D103,D104
+import-order-style = google
+max-line-length = 99
+show-source = true
+statistics = true

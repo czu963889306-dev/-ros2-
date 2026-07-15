@@ -1,0 +1,10 @@
+# generated from ament_cmake_export_definitions/cmake/ament_cmake_export_definitions-extras.cmake.in
+
+set(_exported_definitions "@_AMENT_CMAKE_EXPORT_DEFINITIONS@")
+
+# append definitions to @PROJECT_NAME@_DEFINITIONS
+if(NOT _exported_definitions STREQUAL "")
+  foreach(_def ${_exported_definitions})
+    list(APPEND @PROJECT_NAME@_DEFINITIONS "${_def}")
+  endforeach()
+endif()

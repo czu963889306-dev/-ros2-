@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>gmock_vendor</name>
+  <!-- See googletest's package.xml for details about the versioning scheme. -->
+  <!--
+  Log of versions:
+
+  1.8.9000 = google/googletest@c6cb7e033591528a5fe2c63157a0d8ce927740dc + osrf commits
+  1.10.9000 = google/googletest@703bd9caab50b139428cea1aaff9974ebee5742e + osrf commits
+  -->
+  <version>1.10.9006</version>
+  <description>The package provides GoogleMock.</description>
+
+  <maintainer email="audrow@openrobotics.org">Audrow Nash</maintainer>
+
+  <license>BSD</license>
+
+  <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
+  <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_export_depend>gtest_vendor</build_export_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

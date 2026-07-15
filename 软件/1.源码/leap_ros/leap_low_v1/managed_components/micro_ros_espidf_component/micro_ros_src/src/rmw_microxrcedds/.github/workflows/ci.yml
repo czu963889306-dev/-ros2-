@@ -1,0 +1,61 @@
+name: CI rmw_microxrcedds_c
+
+on:
+    push:
+      branches:
+        - foxy
+        - main
+    pull_request:
+      branches:
+        - '**'
+
+jobs:
+    rmw_microxrcedds_ci:
+        runs-on: ubuntu-20.04
+        container: microros/micro-ros-agent:humble
+
+        steps:
+        - uses: actions/checkout@v2
+          with:
+            path: src/rmw-microxrcedds
+
+        - name: Download dependencies
+          run: |
+            apt update && apt install -y python3-pip git python3-rosdep python3-colcon-common-extensions curl gcovr
+            git clone -b ros2 https://github.com/eProsima/Micro-CDR src/Micro-CDR
+            git clone -b ros2 https://github.com/eProsima/Micro-XRCE-DDS-Client src/Micro-XRCE-DDS-Client
+            git clone -b humble https://github.com/micro-ROS/rosidl_typesupport_microxrcedds src/rosidl_typesupport_microxrcedds
+            git clone -b humble https://github.com/ros2/rmw src/rmw
+            touch src/rosidl_typesupport_microxrcedds/test/COLCON_IGNORE
+            # Install coverage tools
+            . /opt/ros/$ROS_DISTRO/setup.sh
+            rosdep init && rosdep update
+            rosdep install --from-paths src -r
+            apt -y install ros-$ROS_DISTRO-performance-test-fixture
+
+        - name: Build
+          run: . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install --cmake-args -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_FLAGS="-ftest-coverage --coverage -fno-inline -fno-inline-small-functions -fno-default-inline" -DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON -DCMAKE_C_FLAGS="-ftest-coverage --coverage -fno-inline -fno-inline-small-functions -fno-default-inline" -DCMAKE_C_OUTPUT_EXTENSION_REPLACE=ON
+
+        - name: Test
+          run: |
+            . /opt/ros/$ROS_DISTRO/setup.sh && . /uros_ws/install/local_setup.sh && ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888 -d -v4 &
+            sleep 1
+            . /opt/ros/$ROS_DISTRO/setup.sh && . install/local_setup.sh
+            colcon test --event-handlers console_direct+ --packages-select=rmw_microxrcedds --return-code-on-test-failure
+            ./build/rmw_microxrcedds/test/test-sizes 2> memanalisys_out
+
+        # - name: Static memory
+        #   continue-on-error: true
+        #   if: github.event_name == 'pull_request'
+        #   uses: machine-learning-apps/pr-comment@master
+        #   env:
+        #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   with:
+        #     path: memanalisys_out
+
+        - name: Coverage
+          run: |
+            cd src/rmw-microxrcedds/
+            gcovr -x -r . -o coverage.xml ../../build --exclude-unreachable-branches --exclude rmw_microxrcedds_c/test
+            curl -s https://codecov.io/bash -o codecov.bash && chmod +x codecov.bash
+            ./codecov.bash -t ${{ secrets.CODECOV_TOKEN }}

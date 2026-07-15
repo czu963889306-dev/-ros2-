@@ -1,0 +1,16 @@
+name: rcutils CI Kilted
+
+on:
+  push:
+    branches: [ kilted ]
+  pull_request:
+    branches: [ kilted ]
+
+jobs:
+  kilted-ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      branch: ${{ github.ref }}
+      os: ubuntu-24.04
+      docker-image: ubuntu:noble
+      ros-distribution: kilted

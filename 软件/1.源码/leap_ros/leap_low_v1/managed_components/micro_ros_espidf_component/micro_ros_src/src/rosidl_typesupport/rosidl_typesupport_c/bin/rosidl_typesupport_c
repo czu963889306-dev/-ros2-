@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+
+from rosidl_typesupport_c import generate_c
+
+
+def main(argv=sys.argv[1:]):
+    parser = argparse.ArgumentParser(
+        description='Generate the C type support to handle ROS messages.',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument(
+        '--generator-arguments-file',
+        required=True,
+        help='The location of the file containing the generator arguments')
+    parser.add_argument(
+        '--typesupports',
+        required=True,
+        nargs='+',
+        help='The typesupports to be used')
+    args = parser.parse_args(argv)
+
+    generate_c(args.generator_arguments_file, args.typesupports)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

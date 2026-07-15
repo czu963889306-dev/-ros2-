@@ -1,0 +1,16 @@
+///////////////////////////////////////////////////////////////////////
+-v
+-t4
+-u
+-b
+-width(0,4)
+
+++"d__thread="
+--u_GLIBCXX_USE_INT128
+///////////////////////////////////////////////////////////////////////////////
+-e708  // union initialization
+-e801  // goto statement used
+-emacro(*, INVALID_SOCKET)
+../au-misra3.lnt
+../au-misra3-amd1.lnt
+../deprecate.lnt

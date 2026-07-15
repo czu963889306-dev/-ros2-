@@ -1,0 +1,16 @@
+dependencies:
+  esp-box:
+    rules:
+    - if: target == esp32s3
+    version: ^2.4
+  esp32_s2_kaluga_kit:
+    rules:
+    - if: target == esp32s2
+    version: ^3.0
+  esp_jpeg:
+    version: '>=1.0.2'
+  esp_wrover_kit:
+    rules:
+    - if: target == esp32
+    version: ^1.5
+  idf: '>=5.0'

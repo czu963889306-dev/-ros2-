@@ -1,0 +1,8 @@
+# Container specific unique id of a loaded node.
+uint64 unique_id
+---
+# True if the node existed and was unloaded.
+bool success
+
+# Human readable error message if success is false, else empty string.
+string error_message

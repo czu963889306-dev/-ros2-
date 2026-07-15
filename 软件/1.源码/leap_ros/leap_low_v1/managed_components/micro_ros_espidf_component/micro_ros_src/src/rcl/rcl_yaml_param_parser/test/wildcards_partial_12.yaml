@@ -1,0 +1,7 @@
+# config/test_yaml
+---
+
+/**/n*ode:
+    ros__parameters:
+      id: 10
+      name: "front lidar"

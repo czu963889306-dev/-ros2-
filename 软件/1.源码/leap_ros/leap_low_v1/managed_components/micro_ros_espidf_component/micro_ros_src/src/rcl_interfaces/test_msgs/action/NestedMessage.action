@@ -1,0 +1,14 @@
+# goal definition
+Builtins nested_field_no_pkg
+test_msgs/BasicTypes nested_field
+builtin_interfaces/Time nested_different_pkg
+---
+# result definition
+Builtins nested_field_no_pkg
+test_msgs/BasicTypes nested_field
+builtin_interfaces/Time nested_different_pkg
+---
+# feedback
+Builtins nested_field_no_pkg
+test_msgs/BasicTypes nested_field
+builtin_interfaces/Time nested_different_pkg

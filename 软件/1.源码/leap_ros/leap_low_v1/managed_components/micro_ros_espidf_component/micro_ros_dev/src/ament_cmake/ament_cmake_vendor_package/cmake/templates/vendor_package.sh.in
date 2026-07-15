@@ -1,0 +1,13 @@
+# generated from ament_cmake_vendor_package/cmake/templates/vendor_package.sh.in
+
+if [ -d "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/bin" ]; then
+  ament_prepend_unique_value PATH "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/bin"
+fi
+
+if [ -d "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/lib" ]; then
+  ament_prepend_unique_value @_LIBDIR_VAR_NAME@ "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/lib"
+fi
+
+if [ -d "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/lib64" ]; then
+  ament_prepend_unique_value @_LIBDIR_VAR_NAME@ "$AMENT_CURRENT_PREFIX/opt/@PROJECT_NAME@/lib64"
+fi

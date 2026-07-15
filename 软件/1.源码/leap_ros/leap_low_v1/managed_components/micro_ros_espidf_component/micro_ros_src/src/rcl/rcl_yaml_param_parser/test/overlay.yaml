@@ -1,0 +1,13 @@
+# config/test_yaml
+---
+
+lidar_ns:
+  lidar_2:
+    ros__parameters:
+      is_back: true
+camera:
+  ros__parameters:
+    loc: back
+intel:
+  ros__parameters:
+    num_cores: 12

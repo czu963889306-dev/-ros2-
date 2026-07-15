@@ -1,0 +1,80 @@
+# config/test_yaml
+---
+
+/**:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/*:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/**/some_node1:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/*/some_node2:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/**:
+  some_node3:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/*:
+  some_node4:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo1/**:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/foo2/*:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/foo3/**:
+  some_node5:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo4/*:
+  some_node6:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo5:
+  "*":
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo6/**/some_node6:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/foo7/*/some_node7:
+  ros__parameters:
+    id: 10
+    name: "front lidar"
+/foo8/**/bar:
+  some_node8:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo9/*/bar:
+  some_node9:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo10/**/bar:
+  bar1/bar2/**:
+    ros__parameters:
+      id: 10
+      name: "front lidar"
+/foo11/*/bar:
+  bar1/bar2/*:
+    ros__parameters:
+      id: 10
+      name: "front lidar"

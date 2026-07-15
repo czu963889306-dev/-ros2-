@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rosidl_typesupport_microxrcedds_c</name>
+  <version>3.0.1</version>
+  <description>Generate the C interfaces for eProsima Micro XRCE-DDS.</description>
+  <maintainer email="pablogarrido@eprosima.com">Pablo Garrido</maintainer>
+  <license>Apache License 2.0</license>
+  <author>Borja Outerelo</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>microcdr</buildtool_depend>
+  <buildtool_depend>rosidl_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_runtime_c</buildtool_depend>
+
+  <buildtool_export_depend>ament_cmake_ros</buildtool_export_depend>
+  <buildtool_export_depend>microcdr</buildtool_export_depend>
+  <buildtool_export_depend>python3</buildtool_export_depend>
+  <buildtool_export_depend>rosidl_cmake</buildtool_export_depend>
+  <buildtool_export_depend>rosidl_runtime_c</buildtool_export_depend>
+
+  <depend>rmw</depend>
+
+  <exec_depend>rosidl_parser</exec_depend>
+  <exec_depend>rosidl_typesupport_interface</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <member_of_group>rosidl_typesupport_c_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

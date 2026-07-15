@@ -1,0 +1,64 @@
+# config/test_yaml
+---
+
+lidar_ns:
+  lidar_1:
+    lidar11:
+      lidar111:
+        ros__parameters:
+          id: 10
+          name: front_lidar
+          ports: [2438, 2439, 2440]
+          driver1:
+            driver11:
+              driver111:
+                dx: 4.56
+                dy: 2.30
+                fr_sensor_specs: [12, 3, 0, 7]
+              bk_sensor_specs: [12.1, -2.3, 5.2, 9.0]
+          is_front: true
+          driver2:
+            driver21:
+              dx: 1.23
+              dy: 0.45
+  lidar_2:
+    lidar21:
+      ros__parameters:
+        driver1:
+          driver11:
+            id: 11
+            name: back_lidar
+            back_lidar1:
+              back_lidar12:
+                pos: center
+                ratio: 2:1
+            dy1: 0.003
+        is_back: false
+        tmp_driver:
+          dz: 7.89
+camera:
+  camera1:
+    ros__parameters:
+      name: camera1
+      loc: front
+      cam_spec:
+        angle: 2.34
+        supported_brands: ["Bosch", "Novatek", "Mobius"]
+new_camera_ns:
+  new_camera1:
+    ros__parameters:
+      is_cam_on: [true, true, false, true, false, false]
+      brand: Bosch
+  new_camera2:
+    ros__parameters:
+      camera_dr:
+        dr_name: default
+      brand: Mobius 
+drive_px:
+  ros__parameters:
+    num_cores: 6
+    arch: ARM
+intel:
+  ros__parameters:
+    num_cores: 8
+    arch: x86_64

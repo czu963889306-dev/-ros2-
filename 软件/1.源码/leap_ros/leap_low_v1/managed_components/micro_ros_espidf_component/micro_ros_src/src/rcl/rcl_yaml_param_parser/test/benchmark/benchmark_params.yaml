@@ -1,0 +1,7 @@
+# config/test_yaml
+---
+
+foo_ns:
+  foo_name:
+    ros__parameters:
+        param1: 1

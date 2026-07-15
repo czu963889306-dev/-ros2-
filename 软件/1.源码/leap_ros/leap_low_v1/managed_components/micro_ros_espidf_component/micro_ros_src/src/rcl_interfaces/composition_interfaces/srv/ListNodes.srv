@@ -1,0 +1,5 @@
+---
+# List of full node names including namespace.
+string[] full_node_names
+# corresponding unique ids (must have same length as full_node_names).
+uint64[] unique_ids

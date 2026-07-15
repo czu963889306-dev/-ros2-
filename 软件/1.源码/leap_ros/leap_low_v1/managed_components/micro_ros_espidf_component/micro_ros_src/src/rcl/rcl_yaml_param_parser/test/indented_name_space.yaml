@@ -1,0 +1,17 @@
+# config/test_yaml
+---
+  lidar_ns:
+  lidar_1:
+    ros__parameters:
+      id: 10
+      name: front_lidar
+      ports: [2438, 2439, 2440]
+      driver1:
+        dx: 4.56
+        dy: 2.30
+        fr_sensor_specs: [12, 3, 0, 7]
+        bk_sensor_specs: [12.1, -2.3, 5.2, 9.0]
+      is_front: true
+      driver2:
+        dx: 1.23
+      dy: 0.45

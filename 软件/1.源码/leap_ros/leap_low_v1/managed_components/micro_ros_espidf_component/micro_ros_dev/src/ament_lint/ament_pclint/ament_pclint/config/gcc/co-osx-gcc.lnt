@@ -1,0 +1,73 @@
+/* Compiler configuration for gcc 9.0.0.
+   Using the options:  
+   Generated on 2017-12-29 23:49:58 with pclp_config version 1.0.0.
+ */
+
+// Base Options
+//     Extensions
++fdi  //Starts its #include search in the directory of the including file
++fgi  //Enable GNU inline semantics
++fld  //Enable support for gcc label designators
++ppw(include_next)  //Enable support for #include_next
++ppw(ident)  //Enable support for #ident
++ppw(warning)  //Enable support for #warning
++ppw(import)  //Enable support for #import
++ppw(sccs)  //Enable support for #sccs
++ppw(unassert)  //Enable support for #unassert
++cpp(.cc)  //Make .cc a C++ file extension in addition to the default of .cpp and .cxx
++rw(__typeof__)
++rw(_Decimal32)
++rw(_Decimal64)
++rw(_Decimal128)
++rw(__alignof)
++rw(__attribute)
++rw(__builtin_choose_expr)
++rw(__builtin_offsetof)
++rw(__builtin_types_compatible_p)
++rw(__builtin_va_arg)
++rw(__extension__)
++rw(__imag)
++rw(__label__)
++rw(__real)
++rw(__thread)
++rw(__PRETTY_FUNCTION__)
++rw(typeof)
+-rw_asgn(__inline,inline)
+-rw_asgn(__inline__,inline)
+-rw_asgn(__signed__,signed)
+-rw_asgn(__signed,signed)
+-rw_asgn(__volatile__,volatile)
+-rw_asgn(__volatile,volatile)
+-rw_asgn(__alignof__,__alignof)
+-rw_asgn(__const,const)
+-rw_asgn(asm,_up_to_brackets)
+-rw_asgn(__asm,_up_to_brackets)
+-rw_asgn(__asm__,_up_to_brackets)
+
+//     Suppressions
+-emacro(530, va_start)
+-emacro(530, va_end)
+-emacro(413, offsetof)
+
+
+
+// Transformed compiler options
+
+// Size Options
+-si4 -sl8 -sll8 -ss2 -sw4 -sp8 -sf4 -sd8 -sld16 +fzl ++fzl
+
+// Include Options
+--i"/usr/local/include"
+--i"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"
+--i"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"
+--i"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+--i"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include"
+--i"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks (framework directory)"
+
++libh(co-osx-gcc.h)
+-header(co-osx-gcc.h)
+
+////////////////////////////////////////////////////////////////////////////////
+../c99.lnt
+../env-xml.lnt
+-dlint=1

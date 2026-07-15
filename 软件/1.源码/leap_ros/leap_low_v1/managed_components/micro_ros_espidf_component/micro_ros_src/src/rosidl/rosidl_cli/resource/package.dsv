@@ -1,0 +1,2 @@
+source;share/rosidl_cli/environment/rosidl-argcomplete.bash
+source;share/rosidl_cli/environment/rosidl-argcomplete.zsh

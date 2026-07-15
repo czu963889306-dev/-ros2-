@@ -1,0 +1,25 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "rosidl_runtime_c"
+PROJECT_NUMBER         = master
+PROJECT_BRIEF          = "Generate the rosidl interfaces in C."
+
+INPUT                  = README.md ./include ./docs ./QUALITY_DECLARATION.md
+USE_MDFILE_AS_MAINPAGE = README.md
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             += ROSIDL_GENERATOR_C_PUBLIC=
+
+# Tag files that do not exist will produce a warning and cross-project linking will not work.
+TAGFILES += "../../../../doxygen_tag_files/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/"
+# Uncomment to generate tag files for cross-project linking.
+GENERATE_TAGFILE = "../../../../doxygen_tag_files/rosidl_runtime_c.tag"

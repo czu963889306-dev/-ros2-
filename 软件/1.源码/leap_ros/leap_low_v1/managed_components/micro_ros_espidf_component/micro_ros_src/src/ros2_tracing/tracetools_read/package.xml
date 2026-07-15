@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>tracetools_read</name>
+  <version>4.1.1</version>
+  <description>Tools for reading traces.</description>
+  <maintainer email="bedard.christophe@gmail.com">Christophe Bedard</maintainer>
+  <maintainer email="ingo.luetkebohle@de.bosch.com">Ingo Luetkebohle</maintainer>
+  <license>Apache 2.0</license>
+  <url type="website">https://index.ros.org/p/tracetools_read/</url>
+  <url type="repository">https://gitlab.com/ros-tracing/ros2_tracing</url>
+  <url type="bugtracker">https://gitlab.com/ros-tracing/ros2_tracing/-/issues</url>
+  <author email="fixed-term.christophe.bourquebedard@de.bosch.com">Christophe Bedard</author>
+
+  <exec_depend>python3-babeltrace</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_mypy</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>ament_xmllint</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

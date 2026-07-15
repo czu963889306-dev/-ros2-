@@ -1,0 +1,54 @@
+# generated from rcl/test/test_two_executables.py.in
+
+import os
+
+from launch import LaunchDescription
+from launch.actions import ExecuteProcess
+from launch.actions import OpaqueFunction
+
+import launch_testing
+import launch_testing.actions
+import launch_testing.asserts
+
+import unittest
+
+
+def generate_test_description():
+    launch_description = LaunchDescription()
+
+    launch_description.add_action(
+        ExecuteProcess(
+            cmd=['@TEST_EXECUTABLE1@'],
+            name='@TEST_EXECUTABLE1_NAME@',
+        )
+    )
+
+    executable_under_test = ExecuteProcess(
+        cmd=['@TEST_EXECUTABLE2@', '@TEST_EXECUTABLE1_NAME@'],
+        name='@TEST_EXECUTABLE2_NAME@',
+    )
+    launch_description.add_action(executable_under_test)
+
+    launch_description.add_action(
+        launch_testing.actions.ReadyToTest()
+    )
+    return launch_description, locals()
+
+
+class TestTwoExecutables(unittest.TestCase):
+
+    def @TEST_NAME@(self, executable_under_test, proc_info):
+        """Test that the executable under test terminates after a finite amount of time."""
+        proc_info.assertWaitForShutdown(process=executable_under_test, timeout=10)
+
+
+@launch_testing.post_shutdown_test()
+class TestTwoExecutablesAfterShutdown(unittest.TestCase):
+
+    def @TEST_NAME@(self, executable_under_test, proc_info):
+        """Test that the executable under test finished cleanly."""
+        launch_testing.asserts.assertExitCodes(
+            proc_info,
+            [launch_testing.asserts.EXIT_OK],
+            executable_under_test
+        )

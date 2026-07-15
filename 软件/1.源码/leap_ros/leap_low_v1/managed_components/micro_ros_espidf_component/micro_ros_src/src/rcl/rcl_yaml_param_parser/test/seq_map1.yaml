@@ -1,0 +1,14 @@
+# config/test_yaml
+---
+
+lidar_ns:
+  lidar_1:
+    ros__parameters:
+      - driver: front_driver
+        dx: 4.56
+        dy: 2.30
+        sensor_specs: [12, 3, 0, 7]
+      - driver: back_driver
+        dx: 1.23
+        dy: 0.45
+        sensor_specs: [12.1, -2.3, 5.2, 9.0]

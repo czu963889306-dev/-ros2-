@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>rcl_yaml_param_parser</name>
+  <version>5.3.10</version>
+  <description>Parse a YAML parameter file and populate the C data structure.</description>
+
+  <maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+  <maintainer email="william@openrobotics.org">William Woodall</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="anup.pemmaiah@apex.ai">Anup Pemmaiah</author>
+  <author email="jacob@openrobotics.org">Jacob Perron</author>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>ament_cmake_gen_version_h</buildtool_depend>
+
+  <depend>libyaml_vendor</depend>
+  <depend>yaml</depend>
+  <depend>rmw</depend>
+  <build_depend>rcutils</build_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>mimick_vendor</test_depend>
+  <test_depend>osrf_testing_tools_cpp</test_depend>
+  <test_depend>performance_test_fixture</test_depend>
+  <test_depend>rcpputils</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

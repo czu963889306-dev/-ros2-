@@ -1,0 +1,36 @@
+name: micro-ROS fork Update Checker
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Manual trigger"
+  schedule:
+    - cron:  '0 4 * * *'
+
+jobs:
+    micro_ros_fork_update_check:
+        runs-on: ubuntu-latest
+        container: ubuntu:20.04
+        strategy:
+          fail-fast: false
+          matrix:
+            branches: [foxy, galactic, humble, rolling]
+        steps:
+          - name: Check
+            id: check
+            shell: bash
+            run: |
+              apt update; apt install -y git
+              REPO=$(echo ${{ github.repository }} | awk '{split($0,a,"/"); print a[2]}')
+              git clone -b ${{ matrix.branches }} https://github.com/micro-ros/$REPO
+              cd $REPO
+              git remote add ros2 https://github.com/ros2/$REPO
+              git fetch ros2
+              git fetch origin
+              echo "::set-output name=merge_required::true"
+              CMP=$(git rev-list --left-right --count ros2/${{ matrix.branches }}...origin/${{ matrix.branches }} | awk '{print $1}')
+              if [ $CMP = "0" ]; then echo "::set-output name=merge_required::false"; fi
+
+          - name: Alert
+            if: ${{ steps.check.outputs.merge_required  == 'true' }}
+            run: exit 1
