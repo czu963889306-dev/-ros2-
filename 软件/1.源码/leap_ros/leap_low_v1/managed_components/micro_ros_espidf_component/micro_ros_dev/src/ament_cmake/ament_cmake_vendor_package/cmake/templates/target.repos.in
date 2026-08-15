@@ -1,5 +1,0 @@
-repositories:
-  @TARGET_NAME@:
-    type: @VCS_TYPE@
-    url: @VCS_URL@
-    version: @VCS_VERSION@

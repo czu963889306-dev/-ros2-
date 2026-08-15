@@ -1,7 +1,0 @@
-# config/test_yaml
----
-
-/:
-  my_node:
-    ros__parameters:
-      param_name: 'value'

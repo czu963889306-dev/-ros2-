@@ -1,4 +1,0 @@
-dependencies:
-  espressif/esp_jpeg:
-    version: "*"
-    override_path: "../../"

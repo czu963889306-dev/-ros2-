@@ -1,3 +1,0 @@
-<library_settings>
-    <intraprocess_delivery>OFF</intraprocess_delivery> <!-- OFF | USER_DATA_ONLY | FULL -->
-</library_settings>

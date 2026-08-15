@@ -1,6 +1,0 @@
-{
-  "idf.currentSetup": "/root/esp/esp-idf",
-  "idf.customExtraVars": {},
-  "idf.port": "/dev/ttyACM0",
-  "idf.flashType": "UART"
-}

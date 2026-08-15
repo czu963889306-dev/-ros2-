@@ -1,6 +1,0 @@
-BasedOnStyle: Google
-IndentWidth: 2
-BreakBeforeBraces: Linux
-AllowShortIfStatementsOnASingleLine: false
-IndentCaseLabels: false
-PointerAlignment: Middle
